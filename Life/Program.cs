@@ -169,14 +169,15 @@ namespace cli_life
             visited[x, y] = true;
             cluster.Add((x, y));
 
-            int[] dx = { -1, 1, 0, 0 };
-            int[] dy = { 0, 0, -1, 1 };
-
-            for (int i = 0; i < 4; i++)
+            for (int i = -1; i <= 1; i++)
             {
-                int nx = (x + dx[i] + Columns) % Columns;
-                int ny = (y + dy[i] + Rows) % Rows;
-                ExploreCluster(nx, ny, visited, cluster);
+                for (int j = -1; j <= 1; j++)
+                {
+                    if (i == 0 && j == 0) continue;
+                    int nx = (x + i + Columns) % Columns;
+                    int ny = (y + j + Rows) % Rows;
+                    ExploreCluster(nx, ny, visited, cluster);
+                }
             }
         }
     }
