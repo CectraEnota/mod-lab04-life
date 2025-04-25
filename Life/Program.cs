@@ -149,36 +149,41 @@ namespace cli_life
                     if (Cells[x, y].IsAlive && !visited[x, y])
                     {
                         var cluster = new HashSet<(int, int)>();
-                        ExploreCluster(x, y, visited, cluster);
-                        clusters.Add(cluster);
+                        var queue = new Queue<(int, int)>();
+                        queue.Enqueue((x, y));
+                        visited[x, y] = true;
+
+                        while (queue.Count > 0)
+                        {
+                            var (currentX, currentY) = queue.Dequeue();
+                            cluster.Add((currentX, currentY));
+
+                            for (int i = -1; i <= 1; i++)
+                            {
+                                for (int j = -1; j <= 1; j++)
+                                {
+                                    if (i == 0 && j == 0) continue;
+
+                                    int neighborX = (currentX + i + Columns) % Columns;
+                                    int neighborY = (currentY + j + Rows) % Rows;
+
+                                    if (Cells[neighborX, neighborY].IsAlive && !visited[neighborX, neighborY])
+                                    {
+                                        visited[neighborX, neighborY] = true;
+                                        queue.Enqueue((neighborX, neighborY));
+                                    }
+                                }
+                            }
+                        }
+
+                        if (cluster.Count > 0)
+                        {
+                            clusters.Add(cluster);
+                        }
                     }
                 }
             }
-
             return clusters;
-        }
-
-        private void ExploreCluster(int x, int y, bool[,] visited, HashSet<(int, int)> cluster)
-        {
-            if (x < 0 || x >= Columns || y < 0 || y >= Rows ||
-                !Cells[x, y].IsAlive || visited[x, y])
-            {
-                return;
-            }
-
-            visited[x, y] = true;
-            cluster.Add((x, y));
-
-            for (int i = -1; i <= 1; i++)
-            {
-                for (int j = -1; j <= 1; j++)
-                {
-                    if (i == 0 && j == 0) continue;
-                    int nx = (x + i + Columns) % Columns;
-                    int ny = (y + j + Rows) % Rows;
-                    ExploreCluster(nx, ny, visited, cluster);
-                }
-            }
         }
     }
     public class GameSettings
