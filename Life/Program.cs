@@ -152,40 +152,38 @@ namespace cli_life
                         var queue = new Queue<(int, int)>();
                         queue.Enqueue((x, y));
                         visited[x, y] = true;
+                        cluster.Add((x, y));
 
                         while (queue.Count > 0)
                         {
                             var (currentX, currentY) = queue.Dequeue();
-                            cluster.Add((currentX, currentY));
 
-                            for (int i = -1; i <= 1; i++)
+                            for (int dx = -1; dx <= 1; dx++)
                             {
-                                for (int j = -1; j <= 1; j++)
+                                for (int dy = -1; dy <= 1; dy++)
                                 {
-                                    if (i == 0 && j == 0) continue;
+                                    if (dx == 0 && dy == 0) continue;
 
-                                    int neighborX = (currentX + i + Columns) % Columns;
-                                    int neighborY = (currentY + j + Rows) % Rows;
+                                    int neighborX = (currentX + dx + Columns) % Columns;
+                                    int neighborY = (currentY + dy + Rows) % Rows;
 
                                     if (Cells[neighborX, neighborY].IsAlive && !visited[neighborX, neighborY])
                                     {
                                         visited[neighborX, neighborY] = true;
+                                        cluster.Add((neighborX, neighborY));
                                         queue.Enqueue((neighborX, neighborY));
                                     }
                                 }
                             }
                         }
 
-                        if (cluster.Count > 0)
-                        {
-                            clusters.Add(cluster);
-                        }
+                        clusters.Add(cluster);
                     }
                 }
             }
+
             return clusters;
         }
-    }
     public class GameSettings
     {
         public int Width { get; set; } = 50;
