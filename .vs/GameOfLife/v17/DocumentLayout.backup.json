@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\79087\\mod-lab04-life\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{11984324-F4F8-4B80-8F43-6E05F5E79871}|Life.Tests\\Life.Tests.csproj|c:\\users\\79087\\mod-lab04-life\\life.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11984324-F4F8-4B80-8F43-6E05F5E79871}|Life.Tests\\Life.Tests.csproj|solutionrelative:life.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11984324-F4F8-4B80-8F43-6E05F5E79871}|Life.Tests\\Life.Tests.csproj|c:\\users\\79087\\mod-lab04-life\\life.tests\\life.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{11984324-F4F8-4B80-8F43-6E05F5E79871}|Life.Tests\\Life.Tests.csproj|solutionrelative:life.tests\\life.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{553EF050-2D6A-4BFA-9E64-165BEBEF9B01}|Life\\Life.csproj|c:\\users\\79087\\mod-lab04-life\\life\\life.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{553EF050-2D6A-4BFA-9E64-165BEBEF9B01}|Life\\Life.csproj|solutionrelative:life\\life.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{553EF050-2D6A-4BFA-9E64-165BEBEF9B01}|Life\\Life.csproj|c:\\users\\79087\\mod-lab04-life\\life\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{553EF050-2D6A-4BFA-9E64-165BEBEF9B01}|Life\\Life.csproj|solutionrelative:life\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,12 +26,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Life.Tests",
+              "DocumentMoniker": "C:\\Users\\79087\\mod-lab04-life\\Life.Tests\\Life.Tests.csproj",
+              "RelativeDocumentMoniker": "Life.Tests\\Life.Tests.csproj",
+              "ToolTip": "C:\\Users\\79087\\mod-lab04-life\\Life.Tests\\Life.Tests.csproj",
+              "RelativeToolTip": "Life.Tests\\Life.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-25T23:19:28.683Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\79087\\mod-lab04-life\\Life\\Program.cs",
+              "RelativeDocumentMoniker": "Life\\Program.cs",
+              "ToolTip": "C:\\Users\\79087\\mod-lab04-life\\Life\\Program.cs",
+              "RelativeToolTip": "Life\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T23:19:25.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Life",
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\79087\\mod-lab04-life\\Life.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "Life.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\79087\\mod-lab04-life\\Life.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "Life.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T23:18:49.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Life.csproj",
               "DocumentMoniker": "C:\\Users\\79087\\mod-lab04-life\\Life\\Life.csproj",
               "RelativeDocumentMoniker": "Life\\Life.csproj",
               "ToolTip": "C:\\Users\\79087\\mod-lab04-life\\Life\\Life.csproj",
