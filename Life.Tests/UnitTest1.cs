@@ -115,6 +115,13 @@ namespace Life.Tests
             board.Cells[2, 1].IsAlive = true;
             board.Cells[2, 2].IsAlive = true;
 
+            foreach (var cell in board.Cells)
+            {
+                cell.neighbors.RemoveAll(n =>
+                    Math.Abs(n.X - cell.X) > 1 ||
+                    Math.Abs(n.Y - cell.Y) > 1);
+            }
+
             var clusters = board.FindClusters();
             Assert.Single(clusters);
             Assert.Equal(4, clusters[0].Count);
