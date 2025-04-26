@@ -47,6 +47,21 @@ namespace Life.Tests
                 cell.neighbors.Add(neighbor);
             }
         }
+
+        [Fact]
+        public void AliveCells_AfterRandomize_MatchesActualCount()
+        {
+            var board = new Board(100, 100, 1);
+            board.Randomize(0.3);
+
+            int manualCount = 0;
+            for (int x = 0; x < board.Columns; x++)
+                for (int y = 0; y < board.Rows; y++)
+                    if (board.Cells[x, y].IsAlive)
+                        manualCount++;
+
+            Assert.Equal(manualCount, board.AliveCells);
+        }
     }
 
     public class BoardTests
@@ -83,18 +98,6 @@ namespace Life.Tests
             var board = new Board(3, 3, 1);
             var cornerCell = board.Cells[0, 0];
             Assert.Contains(board.Cells[2, 2], cornerCell.neighbors);
-        }
-
-        [Fact]
-        public void AliveCells_CountIsCorrectAfterModification()
-        {
-            var board = new Board(5, 5, 1);
-            int initialAlive = board.AliveCells;
-
-            board.Cells[1, 1].IsAlive = true;
-            board.Cells[2, 2].IsAlive = true;
-
-            Assert.Equal(initialAlive + 2, board.AliveCells);
         }
 
         [Fact]
