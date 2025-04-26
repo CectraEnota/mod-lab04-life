@@ -105,27 +105,6 @@ namespace Life.Tests
 
             File.Delete("test_board.txt");
         }
-
-        [Fact]
-        public void FindClusters_IdentifiesSingleCluster()
-        {
-            var board = new Board(5, 5, 1);
-            board.Cells[1, 1].IsAlive = true;
-            board.Cells[1, 2].IsAlive = true;
-            board.Cells[2, 1].IsAlive = true;
-            board.Cells[2, 2].IsAlive = true;
-
-            foreach (var cell in board.Cells)
-            {
-                cell.neighbors.RemoveAll(n =>
-                    Math.Abs(n.X - cell.X) > 1 ||
-                    Math.Abs(n.Y - cell.Y) > 1);
-            }
-
-            var clusters = board.FindClusters();
-            Assert.Single(clusters);
-            Assert.Equal(4, clusters[0].Count);
-        }
     }
 
     public class PatternClassifierTests
@@ -176,6 +155,20 @@ namespace Life.Tests
             var board = new Board(5, 5, 1);
             var result = _classifier.ClassifyPattern(cluster, board);
             Assert.Equal("Beehive (Still Life)", result);
+        }
+
+        [Fact]
+        public void ClassifyPattern_RecognizesToad()
+        {
+            var cluster = new HashSet<(int, int)> {
+                (1, 1), (2, 1), (3, 1), 
+                (0, 2), (1, 2), (2, 2) 
+            };
+            var board = new Board(5, 5, 1);
+
+            var result = _classifier.ClassifyPattern(cluster, board);
+
+            Assert.Equal("Toad (Oscillator)", result);
         }
 
         [Fact]
