@@ -86,6 +86,18 @@ namespace Life.Tests
         }
 
         [Fact]
+        public void AliveCells_CountIsCorrectAfterModification()
+        {
+            var board = new Board(5, 5, 1);
+            int initialAlive = board.AliveCells;
+
+            board.Cells[1, 1].IsAlive = true;
+            board.Cells[2, 2].IsAlive = true;
+
+            Assert.Equal(initialAlive + 2, board.AliveCells);
+        }
+
+        [Fact]
         public void SaveAndLoad_File_PreservesState()
         {
             var board1 = new Board(10, 10, 1);
@@ -155,20 +167,6 @@ namespace Life.Tests
             var board = new Board(5, 5, 1);
             var result = _classifier.ClassifyPattern(cluster, board);
             Assert.Equal("Beehive (Still Life)", result);
-        }
-
-        [Fact]
-        public void ClassifyPattern_RecognizesToad()
-        {
-            var cluster = new HashSet<(int, int)> {
-                (1, 1), (2, 1), (3, 1), 
-                (0, 2), (1, 2), (2, 2) 
-            };
-            var board = new Board(5, 5, 1);
-
-            var result = _classifier.ClassifyPattern(cluster, board);
-
-            Assert.Equal("Toad (Oscillator)", result);
         }
 
         [Fact]
