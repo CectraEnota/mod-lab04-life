@@ -205,7 +205,7 @@ namespace cli_life
             if (size == 6 && IsBeehive(cluster, board)) return "Beehive (Still Life)";
             if (size == 5 && IsGlider(cluster, board)) return "Glider (Spaceship)";
             if (size == 3 && IsBlinker(cluster, board)) return "Blinker (Oscillator)";
-            if (size == 7 && IsToad(cluster, board)) return "Toad (Oscillator)";
+            if (size == 6 && IsToad(cluster, board)) return "Toad (Oscillator)";
             if (size == 9 && IsLWSS(cluster, board)) return "LWSS (Spaceship)";
             if (size == 9 && IsPulsar(cluster, board)) return "Pulsar (Oscillator)";
 
@@ -287,12 +287,23 @@ namespace cli_life
             int minX = coords.Min(c => c.x);
             int minY = coords.Min(c => c.y);
 
-            return cluster.Contains((minX + 1, minY)) &&
-                    cluster.Contains((minX + 2, minY)) &&
-                    cluster.Contains((minX + 3, minY)) &&
-                    cluster.Contains((minX, minY + 1)) &&
-                    cluster.Contains((minX + 1, minY + 1)) &&
-                    cluster.Contains((minX + 2, minY + 1));
+            bool horizontalOrientation =
+                cluster.Contains((minX, minY)) &&
+                cluster.Contains((minX + 1, minY)) &&
+                cluster.Contains((minX + 2, minY)) &&
+                cluster.Contains((minX + 1, minY + 1)) &&
+                cluster.Contains((minX + 2, minY + 1)) &&
+                cluster.Contains((minX + 3, minY + 1));
+
+            bool verticalOrientation =
+                cluster.Contains((minX, minY)) &&
+                cluster.Contains((minX, minY + 1)) &&
+                cluster.Contains((minX, minY + 2)) &&
+                cluster.Contains((minX + 1, minY + 1)) &&
+                cluster.Contains((minX + 1, minY + 2)) &&
+                cluster.Contains((minX + 1, minY + 3));
+
+            return horizontalOrientation || verticalOrientation;
         }
 
         private bool IsPulsar(HashSet<(int x, int y)> cluster, Board board)
