@@ -393,8 +393,16 @@ namespace cli_life
             }
 
             plot.ShowLegend();
-
-            plot.SavePng("plot.png", 800, 600);
+            string baseDir = AppContext.BaseDirectory;
+            string projectDir = Directory.GetParent(
+                      Directory.GetParent(
+                          Directory.GetParent(
+                              Directory.GetParent(baseDir).FullName
+                          ).FullName
+                      ).FullName
+                   ).FullName;
+            string imagePath = Path.Combine(projectDir, "plot.png");
+            plot.SavePng(imagePath, 800, 600);
             Console.WriteLine("Graph saved as plot.png");
         }
 
